@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess Battle Royale | 8.º EGB</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#10151b;color:#f4f4f4}
+header{background:linear-gradient(135deg,#18232d,#263b2e);padding:28px 20px;text-align:center;border-bottom:3px solid #d7a83e}
+header h1{margin:0;font-size:38px;letter-spacing:2px;text-transform:uppercase}
+header p{margin:8px 0 0;color:#d9d9d9}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px;background:#0b0f13;position:sticky;top:0;z-index:5}
+nav button{background:#202a32;color:#fff;border:1px solid #53616b;padding:10px 16px;border-radius:6px;cursor:pointer;font-weight:bold}
+nav button:hover{background:#d7a83e;color:#111}
+.hero{max-width:1100px;margin:28px auto;padding:42px 25px;background:linear-gradient(120deg,#17231d,#1c2630);border:1px solid #47564b;border-radius:14px;text-align:center}
+.hero h2{font-size:34px;margin:0 0 12px}.hero span{color:#e5b943}
+.hero p{max-width:760px;margin:auto;line-height:1.6;color:#d2d7da}
+.cta{display:inline-block;margin-top:22px;padding:13px 24px;background:#d7a83e;color:#111;text-decoration:none;border-radius:6px;font-weight:bold}
+section{max-width:1100px;margin:24px auto;padding:28px 22px;background:#151c22;border-radius:12px;border:1px solid #303b43}
+h2{color:#e5b943;margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#202a31;padding:20px;border-radius:10px;border-left:4px solid #d7a83e}.card h3{margin-top:0}.card p{color:#c8ced2;line-height:1.5}
+.mission{display:flex;gap:15px;align-items:flex-start}.num{min-width:42px;height:42px;border-radius:50%;background:#d7a83e;color:#111;display:grid;place-items:center;font-weight:bold}
+.board{display:grid;grid-template-columns:repeat(8,1fr);max-width:440px;margin:20px auto;border:6px solid #80652b}
+.square{aspect-ratio:1;display:grid;place-items:center;font-size:32px}.light{background:#e5d8b8;color:#222}.dark{background:#65755d;color:#fff}
+.quiz button{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border:1px solid #48545c;background:#202a31;color:#fff;border-radius:6px;cursor:pointer}
+.quiz button:hover{background:#34434d}.result{margin-top:12px;font-weight:bold}
+.badge{display:inline-block;padding:7px 12px;background:#2d3a2d;border:1px solid #687b60;border-radius:20px;margin:4px}
+footer{text-align:center;padding:28px;color:#9ca5aa}
+.page{display:none}.page.active{display:block}
+@media(max-width:600px){header h1{font-size:28px}.hero h2{font-size:25px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>♟ CHESS BATTLE ROYALE ♟</h1>
+<p>Aprende ajedrez • supera misiones • conquista el tablero</p>
+</header>
+
+<nav>
+<button onclick="showPage('inicio')">Inicio</button>
+<button onclick="showPage('mapa')">Mapa de misión</button>
+<button onclick="showPage('tablero')">El tablero</button>
+<button onclick="showPage('piezas')">Piezas</button>
+<button onclick="showPage('aperturas')">Aperturas</button>
+<button onclick="showPage('quiz')">Desafío</button>
+</nav>
+
+<main>
+<div id="inicio" class="page active">
+<section class="hero">
+<h2>🎯 MISIÓN: <span>DOMINA EL TABLERO</span></h2>
+<p>Bienvenido, estudiante de 8.º de Educación General Básica. Tu objetivo es aprender los fundamentos del ajedrez mediante misiones, desafíos y batallas de conocimiento.</p>
+<a class="cta" href="#mapa" onclick="showPage('mapa')">COMENZAR MISIÓN</a>
+</section>
+<section>
+<h2>🎮 ¿Cómo funciona?</h2>
+<div class="grid">
+<div class="card"><h3>🪂 Zona de aprendizaje</h3><p>Explora cada tema antes de entrar en combate.</p></div>
+<div class="card"><h3>🎯 Misiones</h3><p>Completa retos sobre tablero, piezas, movimientos y aperturas.</p></div>
+<div class="card"><h3>🏆 Recompensas</h3><p>Consigue insignias por cada misión superada.</p></div>
+</div>
+</section>
+</div>
+
+<div id="mapa" class="page">
+<section>
+<h2>🗺️ MAPA DE MISIONES</h2>
+<div class="grid">
+<div class="card mission"><div class="num">1</div><div><h3>Zona de aterrizaje</h3><p>Identifica el tablero, filas, columnas, diagonales y posición inicial.</p><span class="badge">Nivel básico</span></div></div>
+<div class="card mission"><div class="num">2</div><div><h3>Arsenal de piezas</h3><p>Aprende cómo se mueve el rey, dama, torre, alfil, caballo y peón.</p><span class="badge">Movimiento</span></div></div>
+<div class="card mission"><div class="num">3</div><div><h3>Primera batalla</h3><p>Reconoce capturas, jaque, jaque mate y movimientos legales.</p><span class="badge">Combate</span></div></div>
+<div class="card mission"><div class="num">4</div><div><h3>Zona segura</h3><p>Descubre principios básicos de apertura: desarrollo, centro y seguridad del rey.</p><span class="badge">Aperturas</span></div></div>
+</div>
+</section>
+</div>
+
+<div id="tablero" class="page">
+<section>
+<h2>♟️ MISIÓN 1: EL TABLERO</h2>
+<p>El tablero tiene <b>64 casillas</b>: 8 filas y 8 columnas. Las columnas se identifican con letras y las filas con números.</p>
+<div class="board" id="board"></div>
+<div class="card"><h3>Regla de oro</h3><p>Al colocar el tablero, cada jugador debe tener una casilla blanca en su esquina derecha.</p></div>
+</section>
+</div>
+
+<div id="piezas" class="page">
+<section>
+<h2>🧰 MISIÓN 2: EL ARSENAL</h2>
+<div class="grid">
+<div class="card"><h3>♔ Rey</h3><p>Se mueve una casilla en cualquier dirección.</p></div>
+<div class="card"><h3>♕ Dama</h3><p>Se mueve en líneas rectas y diagonales.</p></div>
+<div class="card"><h3>♖ Torre</h3><p>Se mueve horizontal y verticalmente.</p></div>
+<div class="card"><h3>♗ Alfil</h3><p>Se mueve en diagonal y permanece en el mismo color.</p></div>
+<div class="card"><h3>♘ Caballo</h3><p>Se mueve en forma de L y puede saltar piezas.</p></div>
+<div class="card"><h3>♙ Peón</h3><p>Avanza hacia adelante y captura en diagonal.</p></div>
+</div>
+</section>
+</div>
+
+<div id="aperturas" class="page">
+<section>
+<h2>🚁 MISIÓN 3: APERTURAS</h2>
+<p>Una apertura es la primera fase de la partida. No necesitas memorizar muchas jugadas: primero aprende sus principios.</p>
+<div class="grid">
+<div class="card"><h3>1. Controla el centro</h3><p>Intenta influir sobre las casillas centrales.</p></div>
+<div class="card"><h3>2. Desarrolla piezas</h3><p>Saca caballos y alfiles para que participen en la partida.</p></div>
+<div class="card"><h3>3. Protege al rey</h3><p>Busca poner al rey en una posición segura.</p></div>
+<div class="card"><h3>4. No muevas una pieza demasiadas veces</h3><p>Durante el inicio intenta desarrollar varias piezas.</p></div>
+</div>
+</section>
+</div>
+
+<div id="quiz" class="page">
+<section class="quiz">
+<h2>🎯 DESAFÍO FINAL</h2>
+<p><b>Pregunta 1:</b> ¿Cuántas casillas tiene un tablero de ajedrez?</p>
+<button onclick="answer(this,false)">A) 32</button>
+<button onclick="answer(this,true)">B) 64</button>
+<button onclick="answer(this,false)">C) 81</button>
+<button onclick="answer(this,false)">D) 100</button>
+<div id="r1" class="result"></div>
+
+<p><b>Pregunta 2:</b> ¿Qué pieza puede saltar sobre otras piezas?</p>
+<button onclick="answer2(this,false)">A) Torre</button>
+<button onclick="answer2(this,true)">B) Caballo</button>
+<button onclick="answer2(this,false)">C) Alfil</button>
+<button onclick="answer2(this,false)">D) Dama</button>
+<div id="r2" class="result"></div>
+
+<p><b>Pregunta 3:</b> ¿Cuál es un principio básico de apertura?</p>
+<button onclick="answer3(this,true)">A) Controlar el centro</button>
+<button onclick="answer3(this,false)">B) Mover siempre el mismo peón</button>
+<button onclick="answer3(this,false)">C) Sacar la dama inmediatamente</button>
+<button onclick="answer3(this,false)">D) Ignorar el desarrollo</button>
+<div id="r3" class="result"></div>
+</section>
+</div>
+</main>
+
+<footer>♟ Chess Battle Royale • Recurso educativo para 8.º EGB</footer>
+
+<script>
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function answer(btn,ok){document.getElementById('r1').textContent=ok?'✅ ¡Correcto! Has ganado la misión.':'❌ Incorrecto. Intenta nuevamente.'}
+function answer2(btn,ok){document.getElementById('r2').textContent=ok?'✅ ¡Correcto! El caballo puede saltar piezas.':'❌ Incorrecto. Revisa los movimientos de las piezas.'}
+function answer3(btn,ok){document.getElementById('r3').textContent=ok?'✅ ¡Correcto! Controlar el centro es fundamental.':'❌ Incorrecto. Revisa los principios de apertura.'}
+
+const pieces=['♜','♞','♝','♛','♚','♝','♞','♜',
+'♟','♟','♟','♟','♟','♟','♟','♟',
+'','','','','','','','',
+'','','','','','','','',
+'','','','','','','','',
+'','','','','','','','',
+'♙','♙','♙','♙','♙','♙','♙','♙',
+'♖','♘','♗','♕','♔','♗','♘','♖'];
+const board=document.getElementById('board');
+pieces.forEach((p,i)=>{
+ const s=document.createElement('div'); s.className='square '+((Math.floor(i/8)+i)%2?'dark':'light'); s.textContent=p; board.appendChild(s);
+});
+</script>
+</body>
+</html>
